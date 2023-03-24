@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Entity
-@Table(name = "PASSENGERS")
+@Table(name = "PASSENGER")
 public class Passenger {
     @Id
     @Column(name = "ID")

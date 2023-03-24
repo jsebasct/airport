@@ -3,21 +3,28 @@ package org.plural.hibernatefundamentals.airport_two;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "PASSENGERS")
-public class Passenger {
+@SecondaryTable(name = "ADDRESSES",
+        pkJoinColumns = @PrimaryKeyJoinColumn(name = "PASSENGERS_ID", referencedColumnName = "PASSENGERS_ID"))
+public class Passengers {
     @Id
     @Column(name = "PASSENGERS_ID")
     private int id;
+    @Column(name = "PASSENGERS_NAME", table = "PASSENGERS")
     private String name;
+
+    @Column(name = "PASSENGERS_ADDRESS", table = "ADDRESSES", columnDefinition = "varchar(25) not null")
     private String address;
 
-    public Passenger() {
+    public Passengers() {
     }
 
-    public Passenger(int id, String name, String address) {
+    public Passengers(int id, String name, String address) {
         this.id = id;
         this.name = name;
         this.address = address;
