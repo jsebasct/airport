@@ -22,9 +22,9 @@ public class Passenger {
     private String name;
 
 
-    @ManyToOne
-    @JoinColumn(name = "AIRPORT_ID")
-    private Airport airport;
+//    @ManyToOne
+//    @JoinColumn(name = "AIRPORT_ID")
+//    private Airport airport;
 
     @OneToMany(mappedBy = "passenger")
     private List<Ticket> tickets = new ArrayList<>();
@@ -53,13 +53,13 @@ public class Passenger {
         this.name = name;
     }
 
-    public Airport getAirport() {
-        return airport;
-    }
-
-    public void setAirport(Airport airport) {
-        this.airport = airport;
-    }
+//    public Airport getAirport() {
+//        return airport;
+//    }
+//
+//    public void setAirport(Airport airport) {
+//        this.airport = airport;
+//    }
 
     public List<Ticket> getTickets() {
         return Collections.unmodifiableList(tickets);

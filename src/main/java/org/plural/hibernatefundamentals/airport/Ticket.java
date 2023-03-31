@@ -2,6 +2,7 @@ package org.plural.hibernatefundamentals.airport;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -11,6 +12,7 @@ import javax.persistence.Table;
 @Table(name = "TICKETS")
 public class Ticket {
     @Id
+    @GeneratedValue
     @Column(name = "ID")
     private int id;
 
@@ -24,8 +26,8 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket(int id, String number) {
-        this.id = id;
+    public Ticket(String number) {
+
         this.number = number;
     }
 
